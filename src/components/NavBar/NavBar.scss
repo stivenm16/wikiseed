@@ -2,6 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+
   margin: 1rem;
   div {
     display: flex;
@@ -70,3 +71,37 @@
 
   //Animation
 }
+
+.menu {
+  position: absolute;
+  height: 50vh;
+  z-index: 100;
+  width: 60%;
+  top: 2%;
+  left: 8%;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 25px;
+}
+
+.nav-container {
+  position: fixed;
+  width: 90%;
+  height: 30vh;
+  background-color: rgba(128, 128, 128, 0.222);
+  display: flex;
+  margin-left: 17%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+@media only screen and (min-width: 620px) {
+  .nav-container {
+    margin-left: 20%;
+  }
+} ;
