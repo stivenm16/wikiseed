@@ -17,7 +17,6 @@ export default function NavBar() {
 
   let handleToggle = () => {
     setIsMenuActive(!isMenuActive);
-    console.log(clasName);
   };
   return (
     <div id="nav-bar">

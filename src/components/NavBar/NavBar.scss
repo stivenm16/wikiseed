@@ -2,6 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  color: var(--title-color);
 
   margin: 1rem;
   div {
@@ -50,7 +51,7 @@
 .menu-btn__burguer {
   width: 25px;
   height: 3px;
-  background-color: white;
+  background-color: var(--title-color);
   border-radius: 5px;
   &::before,
   &::after {
@@ -59,7 +60,7 @@
     width: 25px;
     height: 3px;
     border-radius: 5px;
-    background-color: var(--text-color);
+    background-color: var(--title-color);
     transition: all 0.5s ease-in-out;
   }
   &::before {
@@ -91,13 +92,17 @@
   position: fixed;
   width: 90%;
   height: 30vh;
-  background-color: rgba(128, 128, 128, 0.222);
+  background-color: var(--title-color);
   display: flex;
+  z-index: 1000;
   margin-left: 17%;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   gap: 0.7rem;
+  li {
+    color: var(--text-color);
+  }
 }
 
 @media only screen and (min-width: 620px) {
