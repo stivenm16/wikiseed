@@ -1,25 +1,25 @@
-.img-container {
+#main-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  i {
-    font-size: 25rem;
-    z-index: 1;
-    color: var(--text-color-shadow);
-  }
-}
-
-#main-title {
-  margin-top: 3rem;
-  width: 95%;
+  align-items: center;
+  flex-direction: column;
+  padding: 0 1.78rem;
   text-align: center;
-  color: var(--text-color);
-  font-size: 2.5rem;
+}
+#main-title {
+  color: var(--title-color);
+  font-size: var(--biggest-font-size);
+  margin-bottom: 0.5rem;
 }
 #logo-main {
-  position: fixed;
-  z-index: 10;
-  height: 12rem;
-  bottom: 43%;
+  height: 25rem;
+}
+
+#hero-description {
+  margin-top: 1.5rem;
+  margin-bottom: 2.5rem;
+  padding: 0 1rem;
+  color: var(--subtitle-color);
+  font-weight: var(--font-medium);
+  font-size: var(--h2-font-size);
 }
