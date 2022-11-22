@@ -11,7 +11,7 @@ export default function WelcomeContainer() {
       <h1 id="main-title">The first cannabis open source project</h1>
       <h3 id="hero-description">
         Cras sed metus vel magna ultricies rhoncus in a velit. Duis euismod
-        dictum quam vitae dignissim. Sed lacus sapien, accumsan eu mi quis.
+        dictum quam vitae disgnissim. Sed lacus sapien, accumsan eu mi quis.
       </h3>
       <MainButton scrollId={"discover-container"} />
     </div>
