@@ -17,7 +17,7 @@
   &:hover,
   &:focus {
     h3 {
-      transform: translateY(-260px);
+      transform: translateY(-240px);
     }
     h4 {
       transform: translateY(-20px);
@@ -46,5 +46,41 @@
     font-weight: var(--font-medium);
     padding: 0 0.75rem;
     text-align: center;
+  }
+}
+
+@media only screen and (min-width: 660px) {
+  .card-seed {
+    &:hover,
+    &:focus {
+      h3 {
+        transform: translateY(-230px);
+      }
+    }
+  }
+}
+@media only screen and (min-width: 900px) {
+  .card-seed {
+    &:hover,
+    &:focus {
+      h3 {
+        transform: translateY(-200px);
+      }
+    }
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .card-seed {
+    width: 60%;
+    &:hover,
+    &:focus {
+      h3 {
+        transform: translateY(-220px);
+      }
+    }
+  }
+
+  #strain-card-img {
+    height: 15rem;
   }
 }

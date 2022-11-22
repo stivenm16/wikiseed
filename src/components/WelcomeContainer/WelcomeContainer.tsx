@@ -2,6 +2,7 @@ import React from "react";
 import "./WelcomeContainer.scss";
 import Logo from "../../assets/imgs/logo.png";
 import MainButton from "../MainButton/MainButton";
+import axios from "axios";
 
 export default function WelcomeContainer() {
   return (

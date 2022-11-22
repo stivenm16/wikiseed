@@ -21,3 +21,9 @@
     color: var(--main-bg-color);
   }
 }
+
+@media only screen and (min-width: 450px) {
+  .main-btn {
+    width: 10rem;
+  }
+}

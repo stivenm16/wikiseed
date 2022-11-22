@@ -5,6 +5,8 @@
   flex-direction: column;
   padding: 0 1.78rem;
   text-align: center;
+  padding: 1rem;
+  // height: 100vh;
 }
 #main-title {
   color: var(--title-color);
@@ -22,4 +24,10 @@
   color: var(--subtitle-color);
   font-weight: var(--font-medium);
   font-size: var(--h2-font-size);
+}
+
+@media only screen and (min-width: 660px) {
+  #main-container {
+    height: 80vh;
+  }
 }

@@ -103,8 +103,24 @@
   }
 }
 
-@media only screen and (min-width: 620px) {
-  .nav-container {
-    margin-left: 20%;
+#navbar-desktop {
+  display: none;
+}
+
+@media only screen and (min-width: 704px) {
+  #nav-bar {
+    padding: 0 5rem;
+  }
+  .menu-btn__burguer {
+    display: none !important;
+  }
+  #navbar-desktop {
+    display: flex;
+    text-align: center;
+    gap: 2rem;
+    padding: 2rem;
+    & li {
+      cursor: pointer;
+    }
   }
 } ;

@@ -21,14 +21,16 @@ const fakeData = [
 export default function Discover() {
   return (
     <div id="discover-container">
-      <h2 id="discover-title">A big purpouse</h2>
+      <h2 id="discover-title">A big purpose</h2>
       <h3 id="description">
         Feel free to discover new seeds, get informed and more. This project is
         for the cannabis community, we want to support this culture.
       </h3>
-      {fakeData.map((e) => (
-        <MainCard title={e.title} description={e.description} />
-      ))}
+      <div className="cards-container">
+        {fakeData.map((e) => (
+          <MainCard title={e.title} description={e.description} />
+        ))}
+      </div>
     </div>
   );
 }

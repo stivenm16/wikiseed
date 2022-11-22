@@ -24,51 +24,57 @@ export default function NavBar() {
         <i className="bx bx-leaf" id="logo" />
         <h2>Wikiseed</h2>
       </div>
-
-      <motion.div onClick={handleToggle} className={clasName}>
-        <div className="menu-btn__burguer"></div>
-      </motion.div>
-      <motion.nav
-        initial={isMenuActive}
-        animate={isMenuActive ? "closed" : "open"}
-        className="menu"
-      >
-        <motion.ul
-          className="nav-container"
-          variants={{
-            open: {
-              clipPath: "inset(0% 0% 0% 0% round 10px)",
-              transition: {
-                type: "spring",
-                bounce: 0,
-                duration: 0.7,
-                delayChildren: 0.3,
-                staggerChildren: 0.05,
-              },
-            },
-            closed: {
-              clipPath: "inset(10% 50% 90% 50% round 10px)",
-              transition: {
-                type: "spring",
-                bounce: 0,
-                duration: 0.3,
-              },
-            },
-          }}
-          style={{ pointerEvents: isMenuActive ? "auto" : "none" }}
+      <div id="mobileM">
+        <motion.div
+          onClick={handleToggle}
+          className={clasName}
+          id={"hamburger"}
         >
-          <motion.li variants={itemVariants}>Home </motion.li>
-          <motion.li variants={itemVariants}>Contact us </motion.li>
-          <motion.li variants={itemVariants}>Discover </motion.li>
-          <motion.li variants={itemVariants}>Support us </motion.li>
-        </motion.ul>
-      </motion.nav>
-      {/* <ul>
+          <div className="menu-btn__burguer" id="nav-mobile"></div>
+        </motion.div>
+        <motion.nav
+          initial={isMenuActive}
+          animate={isMenuActive ? "closed" : "open"}
+          className="menu"
+        >
+          <motion.ul
+            className="nav-container"
+            variants={{
+              open: {
+                clipPath: "inset(0% 0% 0% 0% round 10px)",
+                transition: {
+                  type: "spring",
+                  bounce: 0,
+                  duration: 0.7,
+                  delayChildren: 0.3,
+                  staggerChildren: 0.05,
+                },
+              },
+              closed: {
+                clipPath: "inset(10% 50% 90% 50% round 10px)",
+                transition: {
+                  type: "spring",
+                  bounce: 0,
+                  duration: 0.3,
+                },
+              },
+            }}
+            style={{ pointerEvents: isMenuActive ? "auto" : "none" }}
+          >
+            <motion.li variants={itemVariants}>Home </motion.li>
+            <motion.li variants={itemVariants}>Contact us </motion.li>
+            <motion.li variants={itemVariants}>Discover </motion.li>
+            <motion.li variants={itemVariants}>Support us </motion.li>
+          </motion.ul>
+        </motion.nav>
+      </div>
+
+      <ul id="navbar-desktop">
         <li>Home</li>
         <li>About us</li>
         <li>Wiki</li>
         <li>Support us</li>
-      </ul> */}
+      </ul>
     </div>
   );
 }
