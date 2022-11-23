@@ -2,12 +2,22 @@ import React from "react";
 import "./WelcomeContainer.scss";
 import Logo from "../../assets/imgs/logo.png";
 import MainButton from "../MainButton/MainButton";
-import axios from "axios";
+import TrackVisibility from "react-on-screen";
+import "animate.css";
 
 export default function WelcomeContainer() {
   return (
     <div id="main-container">
-      <img src={Logo} alt="" id="logo-main" />
+      <TrackVisibility partialVisibility>
+        {({ isVisible }) => (
+          <img
+            src={Logo}
+            alt=""
+            id="logo-main"
+            className={isVisible ? "animate__animated animate__fadeInDown" : ""}
+          />
+        )}
+      </TrackVisibility>
       <h1 id="main-title">The first cannabis open source project</h1>
       <h3 id="hero-description">
         Cras sed metus vel magna ultricies rhoncus in a velit. Duis euismod

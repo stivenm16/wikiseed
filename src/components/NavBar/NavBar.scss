@@ -121,6 +121,9 @@
     padding: 2rem;
     & li {
       cursor: pointer;
+      & a {
+        color: var(--title-color);
+      }
     }
   }
 } ;

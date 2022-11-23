@@ -70,10 +70,18 @@ export default function NavBar() {
       </div>
 
       <ul id="navbar-desktop">
-        <li>Home</li>
-        <li>About us</li>
-        <li>Wiki</li>
-        <li>Support us</li>
+        <li>
+          <a href="#">Home</a>
+        </li>
+        <li>
+          <a href="#about">About us</a>
+        </li>
+        <li>
+          <a href="#discover-container">Wiki</a>
+        </li>
+        <li>
+          <a href="#">Support us</a>
+        </li>
       </ul>
     </div>
   );

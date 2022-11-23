@@ -2,6 +2,8 @@ import React from "react";
 import Logo from "../../assets/imgs/logo.png";
 import MainCard from "../MainCard/MainCard";
 import "./Discover.scss";
+import TrackVisibility from "react-on-screen";
+import "animate.css";
 
 const fakeData = [
   {
@@ -28,7 +30,15 @@ export default function Discover() {
       </h3>
       <div className="cards-container">
         {fakeData.map((e) => (
-          <MainCard title={e.title} description={e.description} />
+          <TrackVisibility partialVisibility>
+            {({ isVisible }) => (
+              <MainCard
+                title={e.title}
+                description={e.description}
+                isVisible={isVisible}
+              />
+            )}
+          </TrackVisibility>
         ))}
       </div>
     </div>
