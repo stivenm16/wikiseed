@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./NavBar.scss";
 import { motion, Variants } from "framer-motion";
 import { useNavigate, Link } from "react-router-dom";
+import Logo from "../../commons/Logo/Logo";
 
 export default function NavBar() {
   const [isMenuActive, setIsMenuActive] = useState<boolean>(true);
@@ -35,12 +36,12 @@ export default function NavBar() {
   let handleToggle = () => {
     setIsMenuActive(!isMenuActive);
   };
+  const handlePrueba = () => {
+    console.log("hola");
+  };
   return (
     <div id="nav-bar">
-      <div>
-        <i className="bx bx-leaf" id="logo" />
-        <h2>Wikiseed</h2>
-      </div>
+      <Logo />
       <div id="mobileM">
         <motion.div
           onClick={handleToggle}
@@ -81,7 +82,8 @@ export default function NavBar() {
             <motion.li variants={itemVariants}>Home </motion.li>
             <motion.li variants={itemVariants}>Contact us </motion.li>
             <motion.li variants={itemVariants}>Discover </motion.li>
-            <motion.li variants={itemVariants}>Support us </motion.li>
+            <motion.li variants={itemVariants}>Discover </motion.li>
+            <motion.li variants={itemVariants}>Login </motion.li>
           </motion.ul>
         </motion.nav>
       </div>

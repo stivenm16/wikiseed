@@ -1,0 +1,3 @@
+Notas:
+
+La libreria framer motion tiene un bug en mobile devices que no permite hacer click en los componente animados, revisar eso en el navbar
