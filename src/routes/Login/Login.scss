@@ -1,0 +1,70 @@
+.login {
+  display: flex;
+  & .left-side {
+    background-color: var(--title-color);
+    width: 55%;
+    border-radius: 0 5rem 5rem 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  & h2 {
+    font-size: var(--biggest-font-size);
+  }
+
+  & .form {
+    display: flex;
+    height: 60vh;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--subtitle-color);
+    border-radius: 2rem;
+    margin: auto;
+    width: 30%;
+    -webkit-box-shadow: 10px 10px 46px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 10px 10px 46px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 10px 10px 46px 0px rgba(0, 0, 0, 0.75);
+  }
+  & form {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    gap: 1.2rem;
+
+    & div {
+      display: flex;
+      flex-direction: column;
+      & input {
+        border-radius: 1rem;
+        border: none;
+        outline: none;
+        height: 2rem;
+        padding: 0 1rem;
+        margin-top: 0.5rem;
+        font-family: "Poppins";
+      }
+      & label {
+        color: var(--title-color);
+      }
+    }
+    & p {
+      font-size: 2rem;
+      font-weight: var(--font-bold);
+      text-align: center;
+      color: var(--main-bg-color);
+      line-height: 2.5rem;
+    }
+    & button {
+      background-color: var(--text-color);
+      border: none;
+      outline: none;
+      transition: 0.5s ease-in-out all;
+      margin-top: 1rem;
+      &:hover {
+        background-color: var(--main-bg-color);
+        color: var(--title-color);
+      }
+    }
+  }
+}

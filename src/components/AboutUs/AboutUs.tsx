@@ -35,8 +35,6 @@ export const AboutUs = () => {
           </div>
         )}
       </TrackVisibility>
-
-      <div id="about">E</div>
     </div>
   );
 };

@@ -29,10 +29,11 @@ export default function Discover() {
         for the cannabis community, we want to support this culture.
       </h3>
       <div className="cards-container">
-        {fakeData.map((e) => (
+        {fakeData.map((e, i) => (
           <TrackVisibility partialVisibility>
             {({ isVisible }) => (
               <MainCard
+                key={i}
                 title={e.title}
                 description={e.description}
                 isVisible={isVisible}

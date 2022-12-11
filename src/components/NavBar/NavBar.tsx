@@ -1,11 +1,13 @@
 import { useState } from "react";
 import "./NavBar.scss";
 import { motion, Variants } from "framer-motion";
+import { useNavigate, Link } from "react-router-dom";
 
 export default function NavBar() {
   const [isMenuActive, setIsMenuActive] = useState<boolean>(true);
   let clasName = isMenuActive ? "menu-btn" : "menu-btn active";
 
+  const navigate = useNavigate();
   const itemVariants: Variants = {
     open: {
       opacity: 1,
@@ -14,6 +16,21 @@ export default function NavBar() {
     },
     closed: { opacity: 0, y: 20, transition: { duration: 0.2 } },
   };
+
+  const navBarList = [
+    {
+      title: "Home",
+      href: "#",
+    },
+    {
+      title: "About us",
+      href: "#about",
+    },
+    {
+      title: "Wiki",
+      href: "#discover-container",
+    },
+  ];
 
   let handleToggle = () => {
     setIsMenuActive(!isMenuActive);
@@ -70,17 +87,13 @@ export default function NavBar() {
       </div>
 
       <ul id="navbar-desktop">
+        {navBarList.map((e, i) => (
+          <li key={i}>
+            <a href={e.href}>{e.title}</a>
+          </li>
+        ))}
         <li>
-          <a href="#">Home</a>
-        </li>
-        <li>
-          <a href="#about">About us</a>
-        </li>
-        <li>
-          <a href="#discover-container">Wiki</a>
-        </li>
-        <li>
-          <a href="#">Support us</a>
+          <Link to="/wikiseed/login">Login</Link>
         </li>
       </ul>
     </div>

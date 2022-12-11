@@ -27,6 +27,7 @@ export const Badges = () => {
             <div>
               <span>Beautiful flowers</span>
               <i className="bx bx-spa" />
+              
             </div>
           </div>
         </div>
