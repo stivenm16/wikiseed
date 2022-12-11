@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Logo from "../../commons/Logo/Logo";
+import useAuthContext from "../../contexts/stores/auth/useAuth";
 import "./Login.scss";
 
 function Login() {
@@ -7,6 +8,10 @@ function Login() {
   const handleToggleForm = () => {
     setIsRegistered(!isRegistered);
   };
+
+  const { authState } = useAuthContext();
+  // console.log(authState);
+
   return (
     <div className="login ">
       <div className="left-side">
@@ -49,7 +54,9 @@ function Login() {
               </div>
             )}
             <h5 onClick={handleToggleForm} id={"registered-acc"}>
-              I'm already have an account
+              {isRegistered
+                ? "Create an account"
+                : "I'm already have an account"}
             </h5>
           </form>
         </div>
