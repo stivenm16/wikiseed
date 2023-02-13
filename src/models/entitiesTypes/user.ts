@@ -1,9 +1,12 @@
+import { Roles } from "./roles";
+
 export type UserT = {
   id: string;
   name: string;
   // userLastName: string;
   // userAlias?: string;
   email: string;
+  rol: Roles;
   // userPhone?: string;
   // userRole?: null;
   // userPhoto?: string;
