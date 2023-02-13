@@ -1,12 +1,15 @@
 //CORE COMPONENTS
-import React from 'react';
+import React from "react";
 
 //MODELS
-import { UserT } from '../../types/entitiesTypes/user';
-import { UserReducerActionT } from '../../types/contextTypes/AuthContextTypes';
-import types from '../../constants/ActionStoreTypes';
+import { UserReducerActionT } from "../../models/contextModels/AuthContext.model";
+import { UserT } from "../../models/entitiesTypes/user";
+import types from "../../utilities/constants/ActionStoreTypes";
 
-export const setUser = (user: UserT | null, dispatch: React.Dispatch<UserReducerActionT>) => {
+export const setUser = (
+  user: UserT | null,
+  dispatch: React.Dispatch<UserReducerActionT>
+) => {
   dispatch({
     type: types.SET_USER,
     payload: {
@@ -16,7 +19,10 @@ export const setUser = (user: UserT | null, dispatch: React.Dispatch<UserReducer
   });
 };
 
-export const setLogout = (user: UserT | null, dispatch: React.Dispatch<UserReducerActionT>) => {
+export const setLogout = (
+  user: UserT | null,
+  dispatch: React.Dispatch<UserReducerActionT>
+) => {
   dispatch({
     type: types.SET_LOGOUT,
     payload: {

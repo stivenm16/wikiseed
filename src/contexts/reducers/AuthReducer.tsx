@@ -1,4 +1,4 @@
-import types from '../../constants/ActionStoreTypes';
+import types from "../../utilities/constants/ActionStoreTypes";
 
 function AuthReducer(state: any, { payload, type }: any) {
   switch (type) {

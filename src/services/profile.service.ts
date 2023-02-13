@@ -1,25 +1,28 @@
-import React from 'react';
-import axios, { AxiosResponse } from 'axios';
+import axios, { AxiosResponse } from "axios";
+import React from "react";
 
 //CONTEXT
-import useAuthContext from '../contexts/stores/auth/useAuth';
 
 //ACTIONS
-import { setUser } from '../contexts/actions/auth.actions';
 
 //ROUTES
-import apiRoutes from '../constants/apiRoutes';
+import apiRoutes from "../utilities/constants/apiRoutes";
 
 //MODELS
-import { UserT, GetUserRequest, UserExternalT } from '../types/entitiesTypes/user';
-import { UserReducerActionT } from '../types/contextTypes/AuthContextTypes';
-import { Alert } from 'react-native';
+import { Alert } from "react-native";
+import { UserReducerActionT } from "../models/contextModels/AuthContext.model";
+import {
+  GetUserRequest,
+  UserExternalT,
+  UserT,
+} from "../models/entitiesTypes/user";
 
 const getUser = async (userId: string): Promise<any> => {
   try {
-    const response = await axios.get<string, AxiosResponse<GetUserRequest, UserT>>(
-      apiRoutes.getUser(userId)
-    );
+    const response = await axios.get<
+      string,
+      AxiosResponse<GetUserRequest, UserT>
+    >(apiRoutes.getUser(userId));
 
     if (response.status === 201 || response.status === 200) {
       const data = response.data;
@@ -50,10 +53,10 @@ const editUser = async (
         {
           userId,
           userName: name,
-          userLastName: lastName === '' ? null : lastName,
-          userEmail: email === '' ? null : email,
-          userPhone: phone === '' ? null : phone,
-          biography: aboutMe === '' ? null : aboutMe,
+          userLastName: lastName === "" ? null : lastName,
+          userEmail: email === "" ? null : email,
+          userPhone: phone === "" ? null : phone,
+          biography: aboutMe === "" ? null : aboutMe,
         },
         {
           headers: {
@@ -73,11 +76,11 @@ const editUser = async (
         {
           userId,
           userName: name,
-          userLastName: lastName === '' ? null : lastName,
-          userAlias: alias === '' ? null : alias,
-          userEmail: email === '' ? null : email,
-          userPhone: phone === '' ? null : phone,
-          biography: aboutMe === '' ? null : aboutMe,
+          userLastName: lastName === "" ? null : lastName,
+          userAlias: alias === "" ? null : alias,
+          userEmail: email === "" ? null : email,
+          userPhone: phone === "" ? null : phone,
+          biography: aboutMe === "" ? null : aboutMe,
         },
         {
           headers: {
@@ -97,11 +100,15 @@ const editUser = async (
   }
 };
 
-const getExternalUser = async (userId: string, followerId: string): Promise<UserExternalT> => {
+const getExternalUser = async (
+  userId: string,
+  followerId: string
+): Promise<UserExternalT> => {
   try {
-    const response = await axios.get<string, AxiosResponse<UserExternalT, UserExternalT>>(
-      apiRoutes.getUserExternal(userId, followerId)
-    );
+    const response = await axios.get<
+      string,
+      AxiosResponse<UserExternalT, UserExternalT>
+    >(apiRoutes.getUserExternal(userId, followerId));
     const data = response.data;
     return data;
   } catch (error) {
@@ -113,10 +120,13 @@ const followById = async (followerId: string, userId: string): Promise<any> => {
   try {
     // setIsLoading(true);
 
-    const response = await axios.post<string, AxiosResponse<any, any>>(apiRoutes.followById, {
-      followerId,
-      userId,
-    });
+    const response = await axios.post<string, AxiosResponse<any, any>>(
+      apiRoutes.followById,
+      {
+        followerId,
+        userId,
+      }
+    );
 
     if (response.status === 201 || response.status === 200) {
       const data = response.data;
@@ -127,14 +137,17 @@ const followById = async (followerId: string, userId: string): Promise<any> => {
 
     // setIsLoading(false);
   } catch (error) {
-    Alert.alert('Error', 'Error while trying follow:' + error);
+    Alert.alert("Error", "Error while trying follow:" + error);
 
     // setIsLoading(false);
     throw error;
   }
 };
 
-const deleteFollowById = async (followerId: string, userId: string): Promise<any> => {
+const deleteFollowById = async (
+  followerId: string,
+  userId: string
+): Promise<any> => {
   try {
     // setIsLoading(true);
 
@@ -154,7 +167,7 @@ const deleteFollowById = async (followerId: string, userId: string): Promise<any
 
     // setIsLoading(false);
   } catch (error) {
-    Alert.alert('Error', 'Error while trying follow:' + error);
+    Alert.alert("Error", "Error while trying follow:" + error);
 
     // setIsLoading(false);
     throw error;

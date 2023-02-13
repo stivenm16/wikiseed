@@ -1,16 +1,27 @@
-import React, { useState } from "react";
-import Logo from "../../commons/Logo/Logo";
-import useAuthContext from "../../contexts/stores/auth/useAuth";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import Logo from "../../../commons/Logo/Logo";
+import { PrivateRoutes } from "../../../models/navigationTypes/loggedStackNavigatorTypes";
+import { createUser } from "../../../redux/states/user";
+import getMorty from "../../../services/auth.service";
 import "./Login.scss";
 
 function Login() {
   const [isRegistered, setIsRegistered] = useState(false);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const login = async () => {
+    try {
+      const result = await getMorty();
+      dispatch(createUser({ ...result }));
+      navigate(`/${PrivateRoutes.PRIVATE}`, { replace: true });
+    } catch (error) {}
+  };
   const handleToggleForm = () => {
     setIsRegistered(!isRegistered);
   };
-
-  const { authState } = useAuthContext();
-  // console.log(authState);
 
   return (
     <div className="login ">
@@ -59,6 +70,7 @@ function Login() {
                 : "I'm already have an account"}
             </h5>
           </form>
+          <button onClick={login}>Hack</button>
         </div>
       </div>
     </div>

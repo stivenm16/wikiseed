@@ -1,24 +1,30 @@
-import React from 'react';
-import axios, { AxiosResponse } from 'axios';
-import apiRoutes from '../constants/apiRoutes';
-import { CreateAccountUserT, LoginUserT, MessageError, UserT } from '../types/entitiesTypes/user';
-import { setAuthLoading, setUser, setUserAccessToken } from '../contexts/actions/auth.actions';
-import { UserReducerActionT } from '../types/contextTypes/AuthContextTypes';
-import { Alert } from 'react-native';
-import NavigationService from './navigation.service';
-import { UnloggedRoutes } from '../navigation/routes/unloggedRoutes';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import navigationService from './navigation.service';
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import axios, { AxiosResponse } from "axios";
+import React from "react";
+import {
+  setAuthLoading,
+  setUser,
+  setUserAccessToken,
+} from "../contexts/actions/auth.actions";
+import { UserReducerActionT } from "../models/contextModels/AuthContext.model";
+import {
+  CreateAccountUserT,
+  LoginUserT,
+  UserT,
+} from "../models/entitiesTypes/user";
+import { UnloggedRoutes } from "../navigation/routes/unloggedRoutes";
+import apiRoutes from "../utilities/constants/apiRoutes";
+import NavigationService from "./navigation.service";
 
 export const createUserAccount = async (
   user: CreateAccountUserT,
   dispatchAuthState: React.Dispatch<UserReducerActionT>
 ): Promise<any> => {
   try {
-    const response = await axios.post<CreateAccountUserT, AxiosResponse<UserT, any>>(
-      apiRoutes.createAccount,
-      user
-    );
+    const response = await axios.post<
+      CreateAccountUserT,
+      AxiosResponse<UserT, any>
+    >(apiRoutes.createAccount, user);
     setAuthLoading(false, dispatchAuthState);
     if (response.status === 201) {
       const data = response.data;
@@ -39,7 +45,10 @@ export const loginUser = async (
 ): Promise<any> => {
   try {
     setAuthLoading(true, dispatchAuthState);
-    const response = await axios.post<LoginUserT, AxiosResponse<UserT, any>>(apiRoutes.login, user);
+    const response = await axios.post<LoginUserT, AxiosResponse<UserT, any>>(
+      apiRoutes.login,
+      user
+    );
     setAuthLoading(false, dispatchAuthState);
 
     if (response.status === 201) {
@@ -52,7 +61,7 @@ export const loginUser = async (
         return response.data.statusCode;
       } else {
         const data = response.data;
-        await AsyncStorage.setItem('user', JSON.stringify(data));
+        await AsyncStorage.setItem("user", JSON.stringify(data));
         setUser(data, dispatchAuthState);
         return data;
       }
@@ -60,7 +69,7 @@ export const loginUser = async (
 
     return response.data;
   } catch (error) {
-    console.log('error', error);
+    console.log("error", error);
     setAuthLoading(false, dispatchAuthState);
   }
 };
@@ -71,19 +80,24 @@ export const requestNewPassword = async (
 ): Promise<any> => {
   try {
     setAuthLoading(true, dispatchAuthState);
-    const response = await axios.post<string, AxiosResponse<void, any>>(apiRoutes.requestPassword, {
-      userEmail: userEmail,
-    });
+    const response = await axios.post<string, AxiosResponse<void, any>>(
+      apiRoutes.requestPassword,
+      {
+        userEmail: userEmail,
+      }
+    );
     setAuthLoading(false, dispatchAuthState);
 
     if (response.status === 201) {
-      NavigationService.navigate(UnloggedRoutes.CODE_VERIFICATION, { userEmail });
+      NavigationService.navigate(UnloggedRoutes.CODE_VERIFICATION, {
+        userEmail,
+      });
       return response.data;
     }
 
     return response.data;
   } catch (error) {
-    console.log('error', error);
+    console.log("error", error);
     setAuthLoading(false, dispatchAuthState);
   }
 };
@@ -95,14 +109,23 @@ export const validateCode = async (
 ): Promise<any> => {
   try {
     setAuthLoading(true, dispatchAuthState);
-    const response = await axios.post<string, AxiosResponse<any, any>>(apiRoutes.validateCode, {
-      userEmail,
-      code,
-    });
+    const response = await axios.post<string, AxiosResponse<any, any>>(
+      apiRoutes.validateCode,
+      {
+        userEmail,
+        code,
+      }
+    );
     setAuthLoading(false, dispatchAuthState);
 
-    console.log('🚀 ~ file: user.service.ts ~ line 107 ~ response.status', response.status);
-    console.log('🚀 ~ file: user.service.ts ~ line 107 ~ response.data', response.data);
+    console.log(
+      "🚀 ~ file: user.service.ts ~ line 107 ~ response.status",
+      response.status
+    );
+    console.log(
+      "🚀 ~ file: user.service.ts ~ line 107 ~ response.data",
+      response.data
+    );
 
     if (response.status === 201) {
       setUserAccessToken(response.data.accessToken, dispatchAuthState);
@@ -146,12 +169,18 @@ export const resetPassword = async (
   }
 };
 
-export const disableAccount = async (userEmail: string, password: string): Promise<any> => {
+export const disableAccount = async (
+  userEmail: string,
+  password: string
+): Promise<any> => {
   try {
-    const response = await axios.put<string, AxiosResponse<void, any>>(apiRoutes.disableAccount, {
-      userEmail,
-      password,
-    });
+    const response = await axios.put<string, AxiosResponse<void, any>>(
+      apiRoutes.disableAccount,
+      {
+        userEmail,
+        password,
+      }
+    );
     if (response.status === 201) {
       NavigationService.navigate(UnloggedRoutes.LOGIN);
       return response.status;
@@ -162,7 +191,10 @@ export const disableAccount = async (userEmail: string, password: string): Promi
   }
 };
 
-export const uploadUserImage = async (userId: string, img: any): Promise<any> => {
+export const uploadUserImage = async (
+  userId: string,
+  img: any
+): Promise<any> => {
   try {
     const response = await axios.post<string, AxiosResponse<void, any>>(
       apiRoutes.uploadUserImage(userId),

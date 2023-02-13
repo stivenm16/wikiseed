@@ -1,13 +1,12 @@
 //CORE COMPONENTS
-import React, { useReducer, createContext, useEffect } from "react";
+import { createContext, useReducer } from "react";
 import AuthReducer from "../../reducers/AuthReducer";
 
 //TYPES
 import {
   AuthStateT,
   IAuthContext,
-} from "../../../types/contextTypes/AuthContextTypes";
-import { UserT } from "../../../types/entitiesTypes/user";
+} from "../../../models/contextModels/AuthContext.model";
 
 //SERVICES
 // import AsyncStorage from "@react-native-async-storage/async-storage";
