@@ -1,15 +1,23 @@
 // import BabyPlant from "../../assets/imgs/baby-plant.png";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { PrivateRoutes } from "../../models/navigationTypes/loggedStackNavigatorTypes";
+import { customNavigate } from "../../utilities/constants";
+
 import "./NavBarProfile.scss";
 
 function NavBarProfile() {
+  const navigate = useNavigate();
+
   const phase = "Vegetativo";
   const lifeTime = "24";
   return (
     <div id="Nav-bar-profile">
-      <Link to={"/login"}>
-        <i className="bx bx-leaf" />
-      </Link>
+      <i
+        id="leaf-logo"
+        className="bx bx-leaf"
+        onClick={() => customNavigate(PrivateRoutes.DASHBOARD, navigate)}
+      />
+
       <div id="progress-plant">
         <div className="circle"></div>
         <div className="circle"></div>
@@ -29,7 +37,10 @@ function NavBarProfile() {
         </div>
       </div>
       {/* <img src={BabyPlant} id={"baby-plant"}></img> */}
-      <div className="user-nav-bar">
+      <div
+        className="user-nav-bar"
+        onClick={() => customNavigate(PrivateRoutes.PRIVACY, navigate)}
+      >
         <h3>Username</h3>
 
         <div>

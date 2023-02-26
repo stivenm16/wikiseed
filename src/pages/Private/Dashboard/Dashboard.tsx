@@ -1,17 +1,12 @@
 import DashboardContent from "../../../components/DashboardContent/DashboardContent";
-import NavBarProfile from "../../../components/NavBarProfile/NavBarProfile";
-import SideBar from "../../../components/SideBar/SideBar";
+import Layout from "../Layout/Layout";
 import "./Dasboard.scss";
 
 function Dashboard() {
   return (
-    <div>
-      <NavBarProfile />
-      <div id="dashboard-body">
-        <SideBar />
-        <DashboardContent title="Seguimiento" />
-      </div>
-    </div>
+    <Layout>
+      <DashboardContent title="Seguimiento" />
+    </Layout>
   );
 }
 

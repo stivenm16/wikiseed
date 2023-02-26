@@ -1,11 +1,13 @@
 #Dashboard-content {
   color: var(--title-color);
-  font-size: var(--h2-font-size);
+  font-size: var(--h3-font-size);
   justify-content: center;
-  margin: 3rem auto;
+
   text-align: center;
   margin-left: 18rem;
-
+  overflow: auto;
+  height: 88vh;
+  width: 100%;
   #graphs {
     display: grid;
     margin-top: 3rem;
@@ -20,6 +22,15 @@
       background-color: var(--text-color);
       border-radius: 2rem;
       padding-top: 3rem;
+      div {
+        display: flex;
+        width: 70%;
+        height: 70%;
+        background-color: var(--subtitle-color);
+        align-self: center;
+        margin: 2rem auto;
+        border-radius: 1.2rem;
+      }
     }
   }
 }

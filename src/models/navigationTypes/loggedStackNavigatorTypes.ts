@@ -1,7 +1,15 @@
-import { rootUrl } from "../../utilities/constants";
+// export const PrivateRoutes = {
+//   PRIVATE: `private`,
+//   DASHBOARD: `Dashboard`,
+//   HOME: `Home`,
+//   PROFILE: "Profile",
+//   PRIVACY: "Privacy",
+// };
 
-export const PrivateRoutes = {
-  PRIVATE: `private`,
-  DASHBOARD: `Dashboard`,
-  HOME: `Home`,
-};
+export enum PrivateRoutes {
+  PRIVATE = `private`,
+  DASHBOARD = `Dashboard`,
+  HOME = `Home`,
+  PROFILE = "Profile",
+  PRIVACY = "Privacy",
+}

@@ -1,0 +1,12 @@
+#privacy {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 0 15%;
+  margin: 0 auto;
+  margin-top: 8rem;
+  color: var(--title-color);
+  span {
+    margin-right: 15rem;
+  }
+}
