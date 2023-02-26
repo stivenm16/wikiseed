@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Logo from "../../../commons/Logo/Logo";
+import { Roles } from "../../../models/entitiesTypes/roles";
 import { PrivateRoutes } from "../../../models/navigationTypes/loggedStackNavigatorTypes";
-import { createUser } from "../../../redux/states/user";
+import { PublicRoutes } from "../../../models/navigationTypes/unloggedStackNavigatorTypes";
+import { createUser, resetUser, UserKey } from "../../../redux/states/user";
 import getMorty from "../../../services/auth.service";
+import { clearLocalStorageUser } from "../../../utilities/localStorage.utility";
 import "./Login.scss";
 
 function Login() {
@@ -12,10 +15,16 @@ function Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  useEffect(() => {
+    clearLocalStorageUser(UserKey);
+    dispatch(resetUser());
+    navigate(`/${PublicRoutes.LOGIN}`, { replace: true });
+  }, []);
+
   const login = async () => {
     try {
       const result = await getMorty();
-      dispatch(createUser({ ...result }));
+      dispatch(createUser({ ...result, rol: Roles.ADMIN }));
       navigate(`/${PrivateRoutes.PRIVATE}`, { replace: true });
     } catch (error) {}
   };

@@ -5,7 +5,12 @@ import "./Discover.scss";
 import TrackVisibility from "react-on-screen";
 import "animate.css";
 
-const fakeData = [
+interface Fakedata {
+  title: string;
+  description: string;
+}
+
+const fakeData: Fakedata[] = [
   {
     title: "Indica",
     description: "Proin vitae lacinia nibh. Integer dictum nunc et viverra.",
@@ -20,6 +25,7 @@ const fakeData = [
     description: "Phasellus congue turpis ut tincidunt aliquet. In id quam.",
   },
 ];
+
 export default function Discover() {
   return (
     <div id="discover-container">
