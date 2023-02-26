@@ -20,7 +20,6 @@ function App() {
       <Suspense fallback={<>Loading...</>}>
         <Provider store={store}>
           <BrowserRouter>
-            {/* <Logout /> */}
             <RoutesWithNoFound>
               <Route
                 path={`/`}

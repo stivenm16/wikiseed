@@ -1,16 +1,26 @@
 #logo {
-  font-size: 2rem;
+  font-size: var(--h3-font-size);
   margin: 1.5rem 1rem;
+  width: 200px;
   max-height: 1rem;
+
   cursor: pointer !important;
-  padding: 0 2rem;
+  // padding: 0 2rem;
 
   & a {
     cursor: pointer;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     flex-direction: row;
+    color: var(--text-color);
+    transition: 0.3s ease-in;
+  }
+  & a:hover {
     color: var(--title-color);
+  }
+  & i {
+    color: var(--title-color);
+    font-size: 2rem;
   }
 }

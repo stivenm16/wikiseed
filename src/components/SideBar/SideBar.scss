@@ -1,0 +1,19 @@
+#side-bar {
+  color: var(--title-color);
+  height: 80vh;
+  & ul {
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: var(--text-color);
+    height: 80%;
+    width: fit-content;
+    padding: 1.8rem;
+    border-radius: 0 1.5rem 1.5rem 0;
+    & li {
+      cursor: pointer;
+    }
+  }
+}
