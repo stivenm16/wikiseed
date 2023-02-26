@@ -1,6 +1,8 @@
 #side-bar {
   color: var(--title-color);
   height: 80vh;
+  position: fixed;
+
   & ul {
     margin-top: 5rem;
     display: flex;

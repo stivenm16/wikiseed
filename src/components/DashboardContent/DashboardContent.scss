@@ -3,4 +3,23 @@
   font-size: var(--h2-font-size);
   justify-content: center;
   margin: 3rem auto;
+  text-align: center;
+  margin-left: 18rem;
+
+  #graphs {
+    display: grid;
+    margin-top: 3rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-self: center;
+    overflow: hidden;
+
+    .graph {
+      height: 47vh;
+      width: 480px;
+      background-color: var(--text-color);
+      border-radius: 2rem;
+      padding-top: 3rem;
+    }
+  }
 }
