@@ -25,13 +25,16 @@ function App() {
           <BrowserRouter>
             <RoutesWithNoFound>
               <Route
-                path={`/`}
+                path={`/wiseed/`}
                 element={<Navigate to={PrivateRoutes.PRIVATE} />}
               />
-              <Route path={PublicRoutes.LOGIN} element={<Login />} />
+              <Route
+                path={`/wiseed/${PublicRoutes.LOGIN}`}
+                element={<Login />}
+              />
               <Route element={<AuthGuard validation={true} />}>
                 <Route
-                  path={`${PrivateRoutes.PRIVATE}/*`}
+                  path={`/wiseed/${PrivateRoutes.PRIVATE}/*`}
                   element={<Private />}
                 />
               </Route>

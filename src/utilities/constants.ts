@@ -1,4 +1,4 @@
-import { NavigateFunction, useNavigate } from "react-router-dom";
+import { NavigateFunction } from "react-router-dom";
 import { PrivateRoutes } from "./../models/navigationTypes/loggedStackNavigatorTypes";
 export const rootUrl = "/wikiseed";
 
@@ -10,7 +10,7 @@ export const customNavigate = (
   navigate(privateRoutePath(route), { replace });
 };
 const privateRoutePath = (route: PrivateRoutes): string => {
-  return `/private/${route}`;
+  return `/wiseed/private/${route}`;
 };
 
 export default rootUrl;

@@ -20,7 +20,7 @@ export const AuthGuard = ({ validation }: Props) => {
       PublicValidationFragment
     )
   ) : (
-    <Navigate to={PublicRoutes.LOGIN} />
+    <Navigate to={`wiseed/${PublicRoutes.LOGIN}`} />
   );
 };
 

@@ -10,7 +10,7 @@ function Logout() {
   const logOut = () => {
     clearLocalStorageUser(UserKey);
     dispatch(resetUser());
-    navigate(PublicRoutes.LOGIN, { replace: true });
+    navigate(`/wiseed/${PublicRoutes.LOGIN}`, { replace: true });
   };
   return <button onClick={logOut}>Logout</button>;
 }

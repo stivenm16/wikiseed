@@ -18,14 +18,14 @@ function Login() {
   useEffect(() => {
     clearLocalStorageUser(UserKey);
     dispatch(resetUser());
-    navigate(`/${PublicRoutes.LOGIN}`, { replace: true });
+    navigate(`/wiseed/${PublicRoutes.LOGIN}`, { replace: true });
   }, []);
 
   const login = async () => {
     try {
       const result = await getMorty();
       dispatch(createUser({ ...result, rol: Roles.ADMIN }));
-      navigate(`/${PrivateRoutes.PRIVATE}`, { replace: true });
+      navigate(`/wiseed/${PrivateRoutes.PRIVATE}/`, { replace: true });
     } catch (error) {}
   };
   const handleToggleForm = () => {
