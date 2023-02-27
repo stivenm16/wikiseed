@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import Button from "../../../commons/Button/Button";
+import Modal from "../../../commons/Modal/Modal";
 import { AppStore } from "../../../redux/store";
 import Layout from "../Layout/Layout";
 import "./Privacy.scss";
@@ -23,14 +24,27 @@ const FormSchema = Yup.object().shape({
   ciudad: Yup.string().required("Required"),
   email: Yup.string().required("Required"),
 });
+
 function Privacy() {
+  const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
   const [disabled, setDisabled] = useState(true);
-  // const [updateForm, setfirst] = useState(second)
+
   const userState = useSelector((store: AppStore) => store.user);
-  console.log(userState, ">>>>>>>");
   const toggle = () => {
-    setDisabled(!disabled);
+    setDisabled(false);
+  };
+
+  const handleUpdate = () => {
+    setShowModal(true);
+  };
+  const handleClose = () => {
+    setShowModal(false);
+  };
+
+  const submitForm = () => {
+    setShowModal(false);
+    setDisabled(true);
   };
 
   return (
@@ -38,11 +52,11 @@ function Privacy() {
       <Formik
         initialValues={{
           name: "",
-          selectOption: "",
-          date: "",
-          input1: "",
-          input2: "",
-          checkbox: false,
+          lastname: "",
+          accountType: "",
+          cel: "",
+          ciudad: "",
+          email: "",
         }}
         validationSchema={FormSchema}
         onSubmit={(values, { setSubmitting }) => {
@@ -67,7 +81,7 @@ function Privacy() {
               {disabled ? (
                 <>{userState.rol}</>
               ) : (
-                <Field type="text" name="lastname" placeholder="Nombre" />
+                <Field type="text" name="lastname" placeholder="Apellido" />
               )}
             </span>
 
@@ -76,7 +90,7 @@ function Privacy() {
               {disabled ? (
                 <>+1 11111111</>
               ) : (
-                <Field type="text" name="cel" placeholder="Nombre" />
+                <Field type="text" name="cel" placeholder="Cel" />
               )}
             </span>
             <span>
@@ -92,20 +106,35 @@ function Privacy() {
               {disabled ? (
                 <>{userState.location.name}</>
               ) : (
-                <Field type="text" name="ciudad" placeholder="Nombre" />
+                <Field type="text" name="ciudad" placeholder="Ciudad" />
               )}
             </span>
             <span>
               Tipo de cuenta: <>{userState.rol}</>
             </span>
 
-            <Button
-              label={"Actualizar datos"}
-              disabled={disabled}
-              onClick={toggle}
-              type={"submit"}
-            />
-            <Button label={"Editar"} disabled={!disabled} onClick={toggle} />
+            {!disabled ? (
+              <Button
+                label={"Actualizar datos"}
+                disabled={disabled}
+                onClick={handleUpdate}
+                type={"submit"}
+              />
+            ) : (
+              <Button label={"Editar"} disabled={!disabled} onClick={toggle} />
+            )}
+
+            {showModal ? (
+              <Modal
+                onClose={handleClose}
+                onSubmit={submitForm}
+                showModal={showModal}
+              >
+                <span id="modal-children">
+                  Estas seguro que deseas actualizar tus datos?
+                </span>
+              </Modal>
+            ) : null}
           </Form>
         )}
       </Formik>

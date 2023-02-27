@@ -1,3 +1,4 @@
+import "./Button.scss";
 interface Props {
   label: string;
   disabled: boolean;
@@ -7,7 +8,12 @@ interface Props {
 function Button({ label, disabled, onClick, type }: Props) {
   return (
     <>
-      <button disabled={disabled} onClick={onClick} type={type}>
+      <button
+        disabled={disabled}
+        onClick={onClick}
+        type={type}
+        id={"custom-button"}
+      >
         {label}
       </button>
     </>
