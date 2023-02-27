@@ -1,12 +1,15 @@
 #privacy {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 2rem;
-  padding: 0 15%;
   margin: 0 auto;
   margin-top: 8rem;
   color: var(--title-color);
-  span {
-    margin-right: 15rem;
+  div {
+    button {
+      margin: 0 1rem;
+    }
   }
 }

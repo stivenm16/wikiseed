@@ -2,10 +2,10 @@ import { lazy } from "react";
 import { Navigate, Route } from "react-router-dom";
 import { PrivateRoutes } from "../../models/navigationTypes/loggedStackNavigatorTypes";
 import RoutesWithNoFound from "../../utilities/RoutesWithNoFound";
-import Privacy from "./Privacy/Privacy";
 
 const Dashboard = lazy(() => import("./Dashboard/Dashboard"));
 const Home = lazy(() => import("./Home/Home"));
+const Privacy = lazy(() => import("./Privacy/Privacy"));
 
 function Private() {
   return (
