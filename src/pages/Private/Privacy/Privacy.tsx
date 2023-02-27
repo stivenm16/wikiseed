@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import Button from "../../../commons/Button/Button";
 import Modal from "../../../commons/Modal/Modal";
+import Logout from "../../../components/Logout/Logout";
 import { AppStore } from "../../../redux/store";
 import Layout from "../Layout/Layout";
 import "./Privacy.scss";
@@ -121,7 +122,14 @@ function Privacy() {
                 type={"submit"}
               />
             ) : (
-              <Button label={"Editar"} disabled={!disabled} onClick={toggle} />
+              <div id="privacy-btns">
+                <Button
+                  label={"Editar"}
+                  disabled={!disabled}
+                  onClick={toggle}
+                />
+                <Logout />
+              </div>
             )}
 
             {showModal ? (
